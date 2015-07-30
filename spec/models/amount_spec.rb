@@ -18,6 +18,6 @@ RSpec.describe Amount, type: :model do
   it "has an amount for an ingredient that equals ingredient amount" do
     expect(recipe.ingredients.count).to eq(2)
     expect(recipe.amounts.count).to eq(2)
-    expect(recipe.amounts.first.amount).to eq(5)
+    expect(recipe.amounts.first.ounces).to eq(5)
   end
 end
