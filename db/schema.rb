@@ -16,15 +16,6 @@ ActiveRecord::Schema.define(version: 20150730041742) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "amounts", force: :cascade do |t|
-    t.integer "ounces"
-    t.integer "ingredient_id"
-    t.integer "recipe_id"
-  end
-
-  add_index "amounts", ["ingredient_id"], name: "index_amounts_on_ingredient_id", using: :btree
-  add_index "amounts", ["recipe_id"], name: "index_amounts_on_recipe_id", using: :btree
-
   create_table "beer_recipe_types", force: :cascade do |t|
     t.integer  "beer_type_id"
     t.integer  "recipe_id"
@@ -49,6 +40,7 @@ ActiveRecord::Schema.define(version: 20150730041742) do
   end
 
   create_table "recipe_ingredients", force: :cascade do |t|
+    t.integer  "amount"
     t.integer  "ingredient_id"
     t.integer  "recipe_id"
     t.datetime "created_at",    null: false
@@ -68,8 +60,6 @@ ActiveRecord::Schema.define(version: 20150730041742) do
     t.string   "time_to_make"
   end
 
-  add_foreign_key "amounts", "ingredients"
-  add_foreign_key "amounts", "recipes"
   add_foreign_key "beer_recipe_types", "beer_types"
   add_foreign_key "beer_recipe_types", "recipes"
   add_foreign_key "recipe_ingredients", "ingredients"
