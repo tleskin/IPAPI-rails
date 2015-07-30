@@ -18,4 +18,8 @@ RSpec.describe RecipeIngredient, type: :model do
   it 'has ingredients' do
     expect(recipe).to respond_to(:ingredients)
   end
+
+  it 'has an amount' do
+    expect(recipe).to respond_to(:ingredients)
+  end
 end
