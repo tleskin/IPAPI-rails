@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Ingredient, type: :model do
-  let(:ingredient) {Ingredient.create!(name: "Calypso",
-                                  category: "Hops")}
+
+  let!(:ingredient) { create(:ingredient1) }
 
   it "has a name" do
-    expect(ingredient.name).to eq("Calypso")
+    expect(ingredient.name).to eq("Calypso Hop")
   end
 
   it "is invalid without a name" do
@@ -14,7 +14,7 @@ RSpec.describe Ingredient, type: :model do
   end
 
   it "has a category" do
-    expect(ingredient.category).to eq("Hops")
+    expect(ingredient.category).to eq("Hop")
   end
 
   it "is invalid without a category" do
