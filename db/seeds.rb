@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Recipe.create(name: "The Plinian Legacy Double IPA", description: "Brewed with Columbus, Centennial, Amarillo® and Simply Select Hop Blend, this quintessential double IPA is an homage to the #1 beer in America — as voted by the AHA — and one of the most sought-after brews of the last decade. Brew it for yourself with one of our most popular Double IPA recipe kits.", instructions: "1. Remove the liquid Wyeast pack from the refrigerator,
+recipe = Recipe.create(name: "The Plinian Legacy Double IPA", description: "Brewed with Columbus, Centennial, Amarillo® and Simply Select Hop Blend, this quintessential double IPA is an homage to the #1 beer in America — as voted by the AHA — and one of the most sought-after brews of the last decade. Brew it for yourself with one of our most popular Double IPA recipe kits.", instructions: "1. Remove the liquid Wyeast pack from the refrigerator,
 and “smack” as shown on the back of the yeast package.
 Leave it in a warm place (70–80° F) to incubate until the
 pack begins to inflate. Allow at least 3 hours for inflation;
@@ -108,22 +108,27 @@ solution. Stir gently to mix—don’t splash.
 24. Condition bottles at room temperature for 1–2 weeks.
 After this point, the bottles can be stored cool or cold.
 25. Serving. Pour into a clean glass, being careful to leave
-the layer of sediment at the bottom of the bottle.")
+the layer of sediment at the bottom of the bottle.",
+gravity: 1.070,
+time_to_make: "6 Weeks")
 
-- 10 oz Briess Carapils
-- 6 oz Bairds Carastan
-MAILLARD MALTSTM
-EXTRACTS & OTHER FERMENTABLES
-- 4 lbs Pilsen DME (90 minutes)
-- 6 lbs Pilsen malt syrup (15 min late addition)
-- 0.75 lbs Corn Sugar (0 min late addition)
-HOPTIMUS REXTM
-PREMIUM HOPS
-& OTHER FLAVORINGS
-- 0.25 oz Amarillo (FWH—add to kettle along with steeping
-grains. Total boil time is 90 minutes)
-- 10 mL (2x) Hopshot (90 min)
-- 1 oz Columbus (45 min)
-- 1 oz Simply Select Hop Blend (20 min)
+recipe.ingredients << Ingredient.create(name: "Briess Carapils", category: "Grain")
+recipe.ingredients << Ingredient.create(name: "Bairds Carastan", category: "Grain")
+recipe.ingredients << Ingredient.create(name: "Pilsen DME", category: "Grain")
+recipe.ingredients << Ingredient.create(name: "Pilsen malt syrup", category: "Grain")
+recipe.ingredients << Ingredient.create(name: "Amarillo", category: "Hop")
+recipe.ingredients << Ingredient.create(name: "Hopshot", category: "Hop")
+recipe.ingredients << Ingredient.create(name: "Columbus", category: "Grain")
+recipe.ingredients << Ingredient.create(name: "Simply Select Hop Blend", category: "Grain")
+recipe.ingredients << Ingredient.create(name: "Safale US-05 Ale Yeast", category: "Yeast")
+recipe.ingredients << Ingredient.create(name: "Corn Sugar", category: "Other")
 
-O.G: 1.070 READY: 6 WEEKS 
+recipe.amounts << Amount.create(ounces: 10, ingredient_id: 1, recipe_id: 1)
+recipe.amounts << Amount.create(ounces: 6, ingredient_id: 2, recipe_id: 1)
+recipe.amounts << Amount.create(ounces: 64, ingredient_id: 3, recipe_id: 1)
+recipe.amounts << Amount.create(ounces: 96, ingredient_id: 4, recipe_id: 1)
+recipe.amounts << Amount.create(ounces: 0.25, ingredient_id: 5, recipe_id: 1)
+recipe.amounts << Amount.create(ounces: 0.33814, ingredient_id: 1, recipe_id: 1)
+recipe.amounts << Amount.create(ounces: 1, ingredient_id: 4, recipe_id: 1)
+recipe.amounts << Amount.create(ounces: 1, ingredient_id: 5, recipe_id: 1)
+recipe.amounts << Amount.create(ounces: 12, ingredient_id: 5, recipe_id: 1)
