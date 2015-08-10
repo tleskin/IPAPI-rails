@@ -7,7 +7,7 @@ class Api::V1::RecipesController < ApplicationController
   end
 
   def types
-    types = RecipeService.new.all_types
-    respond_with types
+    @types = BeerType.all
+    render json: @types
   end
 end
