@@ -2,12 +2,12 @@ class Api::V1::RecipesController < ApplicationController
   respond_to :json
 
   def index
-    recipes = RecipeService.new.all_recipes
-    respond_with recipes
+    @recipes = Recipe.all
+    render json: @recipes
   end
 
   def types
-    types = RecipeService.new.all_types
-    respond_with types
+    @types = BeerType.all
+    render json: @types
   end
 end
