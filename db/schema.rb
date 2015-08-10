@@ -35,12 +35,13 @@ ActiveRecord::Schema.define(version: 20150730192401) do
   create_table "ingredients", force: :cascade do |t|
     t.string   "name"
     t.string   "category"
+    t.integer  "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "recipe_ingredients", force: :cascade do |t|
-    t.decimal  "amount"
+    t.integer  "amount"
     t.integer  "ingredient_id"
     t.integer  "recipe_id"
     t.datetime "created_at",    null: false
