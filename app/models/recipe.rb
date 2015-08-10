@@ -4,5 +4,4 @@ class Recipe < ActiveRecord::Base
   has_many :beer_types, through: :beer_recipe_types
   has_many :recipe_ingredients
   has_many :ingredients, through: :recipe_ingredients
-  has_many :amounts
 end

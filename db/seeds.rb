@@ -113,32 +113,34 @@ gravity: "1.070",
 time_to_make: "6 Weeks")
 
 
-BeerType.create(name: "IPA")
-BeerType.create(name: "Stout")
-BeerType.create(name: "Pale Ale")
-BeerType.create(name: "Sour")
+BeerType.create(name: "Ales")
+BeerType.create(name: "Stouts and Porters")
+BeerType.create(name: "Lager")
+BeerType.create(name: "Belgian")
+
 
 recipe.beer_types << BeerType.find(1)
-recipe.ingredients << Ingredient.create(name: "Briess Carapils", category: "Grain")
-recipe.ingredients << Ingredient.create(name: "Bairds Carastan", category: "Grain")
-recipe.ingredients << Ingredient.create(name: "Pilsen DME", category: "Grain")
-recipe.ingredients << Ingredient.create(name: "Pilsen malt syrup", category: "Grain")
-recipe.ingredients << Ingredient.create(name: "Amarillo", category: "Hop")
-recipe.ingredients << Ingredient.create(name: "Hopshot", category: "Hop")
-recipe.ingredients << Ingredient.create(name: "Columbus", category: "Grain")
-recipe.ingredients << Ingredient.create(name: "Simply Select Hop Blend", category: "Grain")
-recipe.ingredients << Ingredient.create(name: "Safale US-05 Ale Yeast", category: "Yeast")
-recipe.ingredients << Ingredient.create(name: "Corn Sugar", category: "Other")
+recipe.ingredients << Ingredient.create(name: "Briess Carapils", category: "Grain", amount: 8)
+recipe.ingredients << Ingredient.create(name: "Bairds Carastan", category: "Grain", amount: 6)
+recipe.ingredients << Ingredient.create(name: "Pilsen DME", category: "Grain", amount: 64)
+recipe.ingredients << Ingredient.create(name: "Pilsen malt syrup", category: "Grain", amount: 96)
+recipe.ingredients << Ingredient.create(name: "Amarillo", category: "Hop", amount: 0.25)
+recipe.ingredients << Ingredient.create(name: "Hopshot", category: "Hop", amount: 0.33814)
+recipe.ingredients << Ingredient.create(name: "Columbus", category: "Grain", amount: 1)
+recipe.ingredients << Ingredient.create(name: "Simply Select Hop Blend", category: "Grain", amount: 1)
+recipe.ingredients << Ingredient.create(name: "Safale US-05 Ale Yeast", category: "Yeast", amount: 12)
+recipe.ingredients << Ingredient.create(name: "Corn Sugar", category: "Other", amount: 8)
+puts "Recipe 1 Created"
 
-recipe.recipe_ingredients.find_by(ingredient_id: 1).amount = 8
-recipe.recipe_ingredients.find_by(ingredient_id: 2).amount = 6
-recipe.recipe_ingredients.find_by(ingredient_id: 3).amount = 64
-recipe.recipe_ingredients.find_by(ingredient_id: 4).amount = 96
-recipe.recipe_ingredients.find_by(ingredient_id: 5).amount = 0.25
-recipe.recipe_ingredients.find_by(ingredient_id: 6).amount = 0.33814
-recipe.recipe_ingredients.find_by(ingredient_id: 7).amount = 1
-recipe.recipe_ingredients.find_by(ingredient_id: 8).amount = 1
-recipe.recipe_ingredients.find_by(ingredient_id: 10).amount = 12
+# recipe.recipe_ingredients.find(1).amount = 8
+# recipe.recipe_ingredients.find(2).amount = 6
+# recipe.recipe_ingredients.find(3).amount = 64
+# recipe.recipe_ingredients.find(4).amount = 96
+# recipe.recipe_ingredients.find(5).amount = 0.25
+# recipe.recipe_ingredients.find(6).amount = 0.33814
+# recipe.recipe_ingredients.find(7).amount = 1
+# recipe.recipe_ingredients.find(8).amount = 1
+# recipe.recipe_ingredients.find(10).amount = 12
 
 recipe1 = Recipe.create(name: "American Wheat", description: "A familiar style made popular by microbreweries all
 over the US. Like their German cousins, American wheat
@@ -229,14 +231,15 @@ gravity: "1.043",
 time_to_make: "4 Weeks")
 
 recipe1.beer_types << BeerType.find(2)
-recipe1.ingredients << Ingredient.create(name: "Wheat malt syrup", category: "Grain")
-recipe1.ingredients << Ingredient.create(name: "Willamette", category: "Hop")
-recipe1.ingredients << Ingredient.create(name: "Cascade", category: "Hop")
-recipe1.ingredients << Ingredient.create(name: "Safale US-05 Ale Yeast", category: "Yeast")
-
-recipe1.recipe_ingredients.find_by(ingredient_id: 11).amount = 96
-recipe1.recipe_ingredients.find_by(ingredient_id: 12).amount = 1
-recipe1.recipe_ingredients.find_by(ingredient_id: 13).amount = 1
+recipe1.ingredients << Ingredient.create(name: "Wheat malt syrup", category: "Grain", amount: 96)
+recipe1.ingredients << Ingredient.create(name: "Willamette", category: "Hop", amount: 1)
+recipe1.ingredients << Ingredient.create(name: "Cascade", category: "Hop", amount: 1)
+recipe1.ingredients << Ingredient.create(name: "Safale US-05 Ale Yeast", category: "Yeast", amount: 1)
+#
+# recipe1.recipe_ingredients.find(11).amount = 96
+# recipe1.recipe_ingredients.find(12).amount = 1
+# recipe1.recipe_ingredients.find(13).amount = 1
+puts "Recipe 2 Created"
 
 recipe2 = Recipe.create(name: "Kenny's Stout", description: "A familiar style made popular by microbreweries all
 over the US. Like their German cousins, American wheat
@@ -255,17 +258,17 @@ gravity: "1.04",
 time_to_make: "5 Weeks")
 
 recipe2.beer_types << BeerType.find(2)
-recipe2.ingredients << Ingredient.find(11)
-recipe2.ingredients << Ingredient.find(12)
-recipe2.ingredients << Ingredient.find(13)
-recipe2.ingredients << Ingredient.find(14)
+recipe2.ingredients << Ingredient.create(name: "Chocolate Malt", category: "Grain", amount: 90)
+recipe2.ingredients << Ingredient.create(name: "Roasted Barley", category: "Grain", amount: 96)
+recipe2.ingredients << Ingredient.create(name: "Centennial", category: "Hop", amount: 96)
+recipe2.ingredients << Ingredient.create(name: "American Ale Yeast", category: "Yeast", amount: 1)
 
-recipe2.recipe_ingredients.find_by(ingredient_id: 11).amount = 144
-recipe2.recipe_ingredients.find_by(ingredient_id: 12).amount = 1
-recipe2.recipe_ingredients.find_by(ingredient_id: 13).amount = 1
-recipe2.recipe_ingredients.find_by(ingredient_id: 14).amount = 1
+# recipe2ingredients << Ingredient.create(name: "Wheat malt syrup", category: "Grain", amount: 144)
+# recipe2.recipe_ingredients.where(ingredient_id: 12).first.amount = 1
+# recipe2.recipe_ingredients.where(ingredient_id: 13).first.amount = 1
+# recipe2.recipe_ingredients.where(ingredient_id: 14).first.amount = 1
 
-recipe3 = Recipe.create(name: "Pale Ale", description: "A familiar style made popular by microbreweries all
+recipe3 = Recipe.create(name: "Yuengling Lager Clone", description: "A familiar style made popular by microbreweries all
 over the US. Like their German cousins, American wheat
 beers feature large proportions of malted wheat in the
 grain bill and are naturally cloudy in appearance.",
@@ -282,20 +285,19 @@ gravity: "1.06",
 time_to_make: "5 Weeks")
 
 recipe3.beer_types << BeerType.find(3)
-recipe3.ingredients << Ingredient.find(2)
-recipe3.ingredients << Ingredient.find(3)
-recipe3.ingredients << Ingredient.find(4)
-recipe3.ingredients << Ingredient.find(5)
-recipe3.ingredients << Ingredient.find(7)
+recipe3.ingredients << Ingredient.create(name: "German Pilser", category: "Grain", amount: 90)
+recipe3.ingredients << Ingredient.create(name: "Tradition", category: "Grain", amount: 1)
+recipe3.ingredients << Ingredient.create(name: "Hersbrucker", category: "Grain", amount: 1)
+recipe3.ingredients << Ingredient.create(name: "Lager Yeast", category: "Yeast", amount: 1)
+puts "Recipe 3 Created"
+# recipe3.recipe_ingredients.where(ingredient_id: 2).first.amount = 3
+# recipe3.recipe_ingredients.where(ingredient_id: 3).first.amount = 3
+# recipe3.recipe_ingredients.where(ingredient_id: 4).first.amount = 58
+# recipe3.recipe_ingredients.where(ingredient_id: 5).first.amount = 3
+# recipe3.recipe_ingredients.where(ingredient_id: 7).first.amount = 10
 
-recipe3.recipe_ingredients.find_by(ingredient_id: 2).amount = 3
-recipe3.recipe_ingredients.find_by(ingredient_id: 3).amount = 3
-recipe3.recipe_ingredients.find_by(ingredient_id: 4).amount = 58
-recipe3.recipe_ingredients.find_by(ingredient_id: 5).amount = 3
-recipe3.recipe_ingredients.find_by(ingredient_id: 7).amount = 10
 
-
-recipe4 = Recipe.create(name: "Sour", description: "A familiar style made popular by microbreweries all
+recipe4 = Recipe.create(name: "Pucker Sour Ale", description: "A familiar style made popular by microbreweries all
 over the US. Like their German cousins, American wheat
 beers feature large proportions of malted wheat in the
 grain bill and are naturally cloudy in appearance.",
@@ -311,15 +313,15 @@ you are using dry yeast, no action is needed.",
 gravity: "1.04",
 time_to_make: "5 Weeks")
 
-recipe4.beer_types << BeerType.find(4)
-recipe4.ingredients << Ingredient.find(1)
-recipe4.ingredients << Ingredient.find(2)
-recipe4.ingredients << Ingredient.find(3)
-recipe4.ingredients << Ingredient.find(10)
-recipe4.ingredients << Ingredient.find(11)
 
-recipe4.recipe_ingredients.find_by(ingredient_id: 1).amount = 1
-recipe4.recipe_ingredients.find_by(ingredient_id: 2).amount = 12
-recipe4.recipe_ingredients.find_by(ingredient_id: 3).amount = 110
-recipe4.recipe_ingredients.find_by(ingredient_id: 10).amount = 5
-recipe4.recipe_ingredients.find_by(ingredient_id: 11).amount = 2
+recipe4.beer_types << BeerType.find(4)
+recipe4.ingredients << Ingredient.create(name: " Wheat dry malt extract", category: "Grain", amount: 48)
+recipe4.ingredients << Ingredient.create(name: "Pilsen dry malt extract", category: "Grain", amount: 48)
+recipe4.ingredients << Ingredient.create(name: "Hersbrucker 2", category: "Hop", amount: 1)
+recipe4.ingredients << Ingredient.create(name: "Lambic Blend", category: "Yeast", amount: 1)
+puts "Recipe 4 Created"
+# recipe4.recipe_ingredients.where(ingredient_id: 1).first.amount = 1
+# recipe4.recipe_ingredients.where(ingredient_id: 2).first.amount = 12
+# recipe4.recipe_ingredients.where(ingredient_id: 3).first.amount = 110
+# recipe4.recipe_ingredients.where(ingredient_id: 10).first.amount = 5
+# recipe4.recipe_ingredients.where(ingredient_id: 11).first.amount = 2
